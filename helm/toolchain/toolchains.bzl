@@ -1,5 +1,5 @@
 load(
-    "@com_github_yujunz_rules_helm//helm:platforms.bzl",
+    "@com_github_yujunz_rules_helm//helm/private:platforms.bzl",
     "HELM_ARCH_CONSTRAINTS",
     "HELM_OS_CONSTRAINTS",
     "PLATFORMS",

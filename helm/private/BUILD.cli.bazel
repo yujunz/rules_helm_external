@@ -1,0 +1,16 @@
+load("@com_github_yujunz_rules_helm//helm:def.bzl", "declare_toolchains", "helm_cli")
+
+package(default_visibility = ["//visibility:public"])
+
+helm_cli(
+    name = "helm_cli",
+    os = "{os}",
+    arch = "{arch}",
+    home_file = "HOME",
+    helm = "helm",
+)
+
+declare_toolchains(
+    host = "{os}_{arch}",
+    cli = ":helm_cli",
+)

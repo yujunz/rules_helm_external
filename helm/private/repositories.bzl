@@ -1,5 +1,5 @@
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
-load("@com_github_yujunz_rules_helm//helm/private:skylib/lib/versions.bzl", "versions")
+load("@com_github_yujunz_rules_helm_external//helm/private:skylib/lib/versions.bzl", "versions")
 
 MINIMUM_BAZEL_VERSION = "0.27"
 

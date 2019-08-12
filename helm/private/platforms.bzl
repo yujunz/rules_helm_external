@@ -14,7 +14,7 @@ HELM_OS_ARCH = (
 
 def _generate_constraints(names, bazel_constraints):
     return {
-        name: bazel_constraints.get(name, "@com_github_yujunz_rules_helm//helm/toolchain:" + name)
+        name: bazel_constraints.get(name, "@com_github_yujunz_rules_helm_external//helm/toolchain:" + name)
         for name in names
     }
 

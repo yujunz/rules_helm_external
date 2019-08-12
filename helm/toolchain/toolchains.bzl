@@ -1,5 +1,5 @@
 load(
-    "@com_github_yujunz_rules_helm//helm/private:platforms.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:platforms.bzl",
     "HELM_ARCH_CONSTRAINTS",
     "HELM_OS_CONSTRAINTS",
     "PLATFORMS",
@@ -20,7 +20,7 @@ def declare_constraints():
     @bazel_tools//platforms:default_platform will be used most of the time).
     """
     for os, constraint in HELM_OS_CONSTRAINTS.items():
-        if constraint.startswith("@com_github_yujunz_rules_helm//helm/toolchain:"):
+        if constraint.startswith("@com_github_yujunz_rules_helm_external//helm/toolchain:"):
             native.constraint_value(
                 name = os,
                 constraint_setting = "@bazel_tools//platforms:os",
@@ -32,7 +32,7 @@ def declare_constraints():
             )
 
     for arch, constraint in HELM_ARCH_CONSTRAINTS.items():
-        if constraint.startswith("@com_github_yujunz_rules_helm//helm/toolchain:"):
+        if constraint.startswith("@com_github_yujunz_rules_helm_external//helm/toolchain:"):
             native.constraint_value(
                 name = arch,
                 constraint_setting = "@bazel_tools//platforms:cpu",

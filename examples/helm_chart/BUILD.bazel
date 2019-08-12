@@ -1,6 +1,0 @@
-load("@com_github_yujunz_rules_helm//helm:def.bzl", "helm_chart")
-
-helm_chart(
-    name = "helm_chart",
-    srcs = ["Chart.yaml"],
-)

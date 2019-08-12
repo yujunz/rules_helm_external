@@ -1,4 +1,4 @@
-load("@com_github_yujunz_rules_helm//helm:def.bzl", "declare_toolchains", "helm_cli")
+load("@com_github_yujunz_rules_helm_external//helm:def.bzl", "declare_toolchains", "helm_cli")
 
 package(default_visibility = ["//visibility:public"])
 

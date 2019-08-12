@@ -1,14 +1,10 @@
 load(
-    "@com_github_yujunz_rules_helm//helm/private:providers.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:providers.bzl",
     "HelmCLI",
 )
 load(
-    "@com_github_yujunz_rules_helm//helm/private:platforms.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:platforms.bzl",
     "PLATFORMS",
-)
-load(
-    "@com_github_yujunz_rules_helm//helm/private:actions/package.bzl",
-    "emit_package",
 )
 
 """
@@ -24,9 +20,6 @@ def _helm_toolchain_impl(ctx):
         cross_compile = cross_compile,
         default_os = ctx.attr.os,
         default_arch = ctx.attr.arch,
-        actions = struct(
-            package = emit_package,
-        ),
         cli = cli,
     )]
 
@@ -70,10 +63,10 @@ def declare_toolchains(host, cli):
         )
         native.toolchain(
             name = toolchain_name,
-            toolchain_type = "@com_github_yujunz_rules_helm//helm:toolchain",
+            toolchain_type = "@com_github_yujunz_rules_helm_external//helm:toolchain",
             exec_compatible_with = [
-                "@com_github_yujunz_rules_helm//helm/toolchain:" + host_os,
-                "@com_github_yujunz_rules_helm//helm/toolchain:" + host_arch,
+                "@com_github_yujunz_rules_helm_external//helm/toolchain:" + host_os,
+                "@com_github_yujunz_rules_helm_external//helm/toolchain:" + host_arch,
             ],
             target_compatible_with = constraints,
             toolchain = ":" + impl_name,

@@ -1,5 +1,5 @@
 load(
-    "@com_github_yujunz_rules_helm//helm/private:providers.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:providers.bzl",
     "HelmCLI",
 )
 

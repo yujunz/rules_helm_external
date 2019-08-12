@@ -1,15 +1,15 @@
 load(
-    "@com_github_yujunz_rules_helm//helm/private:cli_list.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:cli_list.bzl",
     "BINARY_REPOSITORIES",
     "DEFAULT_VERSION",
     "MIN_SUPPORTED_VERSION",
 )
 load(
-    "@com_github_yujunz_rules_helm//helm/private:platforms.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:platforms.bzl",
     "generate_toolchain_names",
 )
 load(
-    "@com_github_yujunz_rules_helm//helm/private:skylib/lib/versions.bzl",
+    "@com_github_yujunz_rules_helm_external//helm/private:skylib/lib/versions.bzl",
     "versions",
 )
 
@@ -39,7 +39,7 @@ def _cli_build_file(ctx, platform):
     os, _, arch = platform.partition("_")
     ctx.template(
         "BUILD.bazel",
-        Label("@com_github_yujunz_rules_helm//helm/private:BUILD.cli.bazel"),
+        Label("@com_github_yujunz_rules_helm_external//helm/private:BUILD.cli.bazel"),
         executable = False,
         substitutions = {
             "{os}": os,
